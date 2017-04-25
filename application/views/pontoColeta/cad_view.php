@@ -2,7 +2,7 @@
 
 <?php echo validation_errors(); ?>
 
-<?php echo form_open('pontocoleta/cadastrar', array('class' => 'form-horizontal')); ?>
+<?php echo form_open('pontoColeta/cadastrar', array('class' => 'form-horizontal')); ?>
 <div class="form-group" >
     <label for="nome" class="col-sm-1 control-label">Nome</label>
     <div class="col-sm-3">

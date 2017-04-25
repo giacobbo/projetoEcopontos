@@ -77,7 +77,7 @@ class Usuario extends CI_Controller {
         } else {
             $data['title'] = 'Cadastro completo';
             $this->usuario_model->alterar_senha();
-            redirect('./pontocoleta/view');
+            redirect('./pontoColeta/view');
         }
     }
 

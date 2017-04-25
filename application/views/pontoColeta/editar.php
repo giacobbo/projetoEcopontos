@@ -4,7 +4,7 @@
 echo validation_errors();
 ?>
 
-<?php echo form_open('pontocoleta/editar', array('class' => 'form-horizontal')); ?>
+<?php echo form_open('pontoColeta/editar', array('class' => 'form-horizontal')); ?>
 
 <input type="hidden" name="id" value="<?php echo $id; ?>"/>
 <div class="form-group" >

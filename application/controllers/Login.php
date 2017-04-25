@@ -48,7 +48,7 @@ class Login extends CI_Controller {
 
                 $this->session->set_userdata($data);
 
-                redirect('./pontocoleta/view');
+                redirect('./pontoColeta/view');
             } else {
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/menu');

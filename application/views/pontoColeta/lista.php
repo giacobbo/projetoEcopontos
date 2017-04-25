@@ -9,8 +9,8 @@ foreach ($pontos as $ponto) {
     $dados['nome'] = $ponto['nomePonto'];
     $dados['endereco'] = "Rua " . $ponto['rua']. ", " . $ponto['numero'] . " - " . $ponto['cidade']. ", " . $ponto['estado'] ;
     $dados['residuos'] = $ponto['residuo'];
-    $dados['acoes'] = '<a href="'.base_url('index.php/pontocoleta/editar/'.$ponto['id']). '"><img src="' . base_url("assets/images/actions/edit.png") . '" alt="Editar ponto"/></a>';
-    $dados['acoes'] .= '<a href="'.base_url('index.php/pontocoleta/deletar/'.$ponto['id']). '"><img src="' . base_url("assets/images/actions/delete.png") . '" alt="Remover ponto"/></a>';
+    $dados['acoes'] = '<a href="'.base_url('index.php/pontoColeta/editar/'.$ponto['id']). '"><img src="' . base_url("assets/images/actions/edit.png") . '" alt="Editar ponto"/></a>';
+    $dados['acoes'] .= '<a href="'.base_url('index.php/pontoColeta/deletar/'.$ponto['id']). '"><img src="' . base_url("assets/images/actions/delete.png") . '" alt="Remover ponto"/></a>';
 
 
     $valoresTabela[] = $dados;

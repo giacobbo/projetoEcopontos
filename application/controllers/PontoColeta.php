@@ -28,7 +28,7 @@ class PontoColeta extends CI_Controller {
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/menu');
-        $this->load->view('pontocoleta/lista');
+        $this->load->view('pontoColeta/lista');
         $this->load->view('templates/footer');
     }
 
@@ -97,7 +97,7 @@ class PontoColeta extends CI_Controller {
             $this->load->view('templates/footer');
         } else {
             $this->pontoColeta_model->update();
-            redirect('./pontocoleta/listar');
+            redirect('./pontoColeta/listar');
         }
     }
 
