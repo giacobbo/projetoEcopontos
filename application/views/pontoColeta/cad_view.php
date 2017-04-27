@@ -74,7 +74,7 @@
         </div>
     </div>
 </fieldset>
-<input type="submit" class="btn btn-default" name="submit" value="Cadastrar usuario" />
+<input type="submit" class="btn btn-default" name="submit" value="Cadastrar ponto" />
 </form>
 <script type="text/javascript" src="<?php echo base_url('assets/js/jquery-3.2.0.min.js') ?>"></script>
 <script type="text/javascript">

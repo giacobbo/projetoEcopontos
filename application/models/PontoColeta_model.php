@@ -70,10 +70,18 @@ class PontoColeta_model extends CI_Model {
         $estadoFinal = str_replace(' ', '+', trim($nomeEstado));
 
         $url = "https://maps.googleapis.com/maps/api/geocode/xml?address=" . $numFinal . "+" . $ruaFinal . "+" . $cidadeFinal . "+" . $estadoFinal . "&key=" . $key;
-        $xml = simplexml_load_file($url);
-        $coord['lat'] = (float) $xml->result->geometry->location->lat;
-        $coord['lng'] = (float) $xml->result->geometry->location->lng;
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $xml = curl_exec($ch);
+        curl_close($ch);
 
+        $cont = new SimpleXMLElement($xml);
+        
+        $coord['lat'] = (float) $cont->result->geometry->location->lat;
+        $coord['lng'] = (float) $cont->result->geometry->location->lng;
+        
         return $coord;
     }
 
@@ -106,7 +114,9 @@ class PontoColeta_model extends CI_Model {
                 $pht[] = array("estabelecimento" => $idPonto, "residuo" => $residuo['id']);
             }
         }
-        $this->db->insert_batch('estab_has_tiporesiduo', $pht);
+        if (count($pht) > 0) {
+            $this->db->insert_batch('estab_has_tiporesiduo', $pht);
+        }
 
         if ($this->db->trans_status() === FALSE) {
             $this->db->trans_rollback();
@@ -145,7 +155,9 @@ class PontoColeta_model extends CI_Model {
                 $pht[] = array("estabelecimento" => $this->input->post('id'), "residuo" => $residuo['id']);
             }
         }
-        $this->db->insert_batch('estab_has_tiporesiduo', $pht);
+        if (count($pht) > 0) {
+            $this->db->set($pht)->insert_batch('estab_has_tiporesiduo');
+        }
 
         if ($this->db->trans_status() === FALSE) {
             $this->db->trans_rollback();

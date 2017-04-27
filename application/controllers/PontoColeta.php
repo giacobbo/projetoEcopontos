@@ -60,7 +60,7 @@ class PontoColeta extends CI_Controller {
             $this->load->view('templates/footer');
         } else {
             $this->pontoColeta_model->inserir();
-            $this->load->view('pontoColeta/success');
+            redirect('./pontoColeta/listar');
         }
     }
 
